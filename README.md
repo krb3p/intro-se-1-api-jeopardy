@@ -53,7 +53,7 @@ It looks pretty messy and hard to read, doesn't it?
 </details>
 <br>
 
-This data structure is called a [JSON](/ "This stands for JavaScript Object Notation") object, and yes, it looks like a bunch of arrays and hashes because that's exactly what it is! Once it's formatted, it's MUCH less intimidating.
+This data structure is called a [JSON](https://www.w3schools.com/js/js_json_intro.asp "This stands for JavaScript Object Notation") object, and yes, it looks like a bunch of arrays and hashes because that's exactly what it is! Once it's formatted, it's MUCH less intimidating.
 
 To make YOUR browser format it this way, you'll want to find a plugin that will do this. There are many options; the example used one for Chrome called JSONview. To install that one, just search for "JSONview" and navigate to the Chrome Web Store.
 
