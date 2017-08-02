@@ -89,6 +89,14 @@ You'll notice that it puts the entire response out all at once. That's *way* too
 
 1. Print out just the first item in the entire response.
 2. Print out just the question of the first item in the entire response.
+    * This will be tough because they keys LOOK like symbols, but they're actually strings - that's just the way JSON objects operate.
+```Ruby
+# You might be tempted to try to access a question like this:
+puts response[0][:question]
+
+# HOWEVER, JSON objects opened in the way we opened this one (using HTTParty) will have the keys formatted as strings, so try this instead:
+puts response[0]['question']
+```
 3. Refactor your code so that it prints out a random question, not just the first one every time.
 4. Now, get some user input after the question. If what they type matches the answer, print a "congratulations!" message of some sort. If it doesn't match, print an "sorry" message of some sort.
     * It's important to think about how specific Ruby's matching will be. If the user types "gorge" but the correct answer is "Gorge.", then the user will get the question wrong. *Consider finding a way of making your program responsive to small variations in capitalization or punctuation.*
