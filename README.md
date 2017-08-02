@@ -4,7 +4,7 @@
 
 We're going to build a CLI trivia game! When it's finished, it will look something like this:
 
-![jeopardy game](jeopardyCLI.gif "How cool is this?!")
+<img src="jeopardyCLI.gif" width="850">
 
 We will use a url (those things we usually call 'links') to get random trivia questions!
 
@@ -88,6 +88,7 @@ ruby jeopardy.rb
 You'll notice that it puts the entire response out all at once. That's *way* too much.  We'll go one step at a time and try to build this up as a fully functional and interactive game.
 
 1. Print out just the first item in the entire response.
+
 2. Print out just the question of the first item in the entire response.
     * This will be tough because they keys LOOK like symbols, but they're actually strings - that's just the way JSON objects operate.
 ```Ruby
@@ -98,23 +99,28 @@ puts response[0][:question]
 puts response[0]['question']
 ```
 3. Refactor your code so that it prints out a random question, not just the first one every time.
+
 4. Now, get some user input after the question. If what they type matches the answer, print a "congratulations!" message of some sort. If it doesn't match, print an "sorry" message of some sort.
     * It's important to think about how specific Ruby's matching will be. If the user types "gorge" but the correct answer is "Gorge.", then the user will get the question wrong. *Consider finding a way of making your program responsive to small variations in capitalization or punctuation.*
+    
 5. If you get it wrong, you probably still want to know the right answer - it can be so frustrating if you were sure you were right. If the user gets it wrong, print out a message tell them what the correct answer really was.
+
 6. Wrap this game in either a times loop or an until loop; that way the user can play the game 10 times in a row, or they can play until they type something like "exit".
+
 7. Create a score variable:
     * If the user gets a question right, increase their score by the point value of the question.
     * If the user gets a question wrong, decrease their score by the point value of the question.
     * Print out their score after each round.
+    
 8. One of the most frustrating parts of this game is missing an answer due to typos, spelling errors, capitalization mismatches, or unexpected punctuation. Some of this is relatively easy to fix with Ruby's core methods, but there is no core method to show that "george" and "gorge" are SO CLOSE that the user probably actually knew the answer.
     * There's a gem called [similar-text](https://rubygems.org/gems/similar_text) that will let us examine how similar two strings are.
     * Install that gem, require it at the top of your program, and then look at the documentation to figure out how to use it.
     * If the user's answer is really close to the real answer, let them know that they almost have it, but that they may want to type it more carefully.
     * It may also be beneficial to consider a way of recognizing that "Grapes of Wrath" and "The Grapes of Wrath" would be considered a mismatch. Are you going to give the user another change if all they're missing is a small word like "the"?
-9. The real jeopardy board has six categories, and 5 questions per category of increasing difficulty. That's 30 unique questions. The player also gets to CHOOSE which questions to answer and when.
 
 ![Jeopardy Board](jBoard.jpg)
 
+9. The real jeopardy board has six categories, and 5 questions per category of increasing difficulty. That's 30 unique questions. The player also gets to CHOOSE which questions to answer and when.
     * Find a way to load all 30 questions, and then offer the user a choice of which question to attempt.
     * Find a way to print out a visual representation of the board in the console.
       * Bonus: print the score at the top or bottom of the board.
