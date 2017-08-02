@@ -20,12 +20,14 @@ Then, we're going to write a program to ask those questions to a user and tell t
 </details>
 <br>
 
-### Environment Setup
+## Environment Setup
 
 In order for this game to work, we will need a few things:
 
 1. A program that will "get" the quiz question. In other words, if we think of the url (the 'link') as an address, we need a way to go get the data waiting for us at that address. We will use a ruby gem called "HTTParty"
 2. A way to easily read the information that comes back to us from that address.
+
+#### Install a URL handler
 
 To install HTTParty, type the following into the console:
 ```bash
@@ -36,6 +38,8 @@ we also need to tell the ruby program to actually USE the gem we just installed.
 ```Ruby
 require 'httparty'
 ```
+
+#### Enable a JSON formatter
 
 We're going to use the HTTParty gem to retrieve information from this address: [http://jservice.io/api/clues?category=139](http://jservice.io/api/clues?category=139 "Let's get some questions!")
 
@@ -63,7 +67,7 @@ To make YOUR browser format it this way, you'll want to find a plugin that will 
 
 Once you've installed HTTParty and enabled a JSON formatter, you're ready to jump in.
 
-### API Basics
+## API Basics
 
 We're going to use an api called [jservice](http://jservice.io/), and if you go to their homepage, you'll see some advice for how to use their API.
 
@@ -77,7 +81,7 @@ Earlier, you used [http://jservice.io/api/clues?category=139](http://jservice.io
 
 Feel free to change the category to whatever other category you choose. When you've picked a category you like (or if you want to stick to 5-letter words), it's time to really get started.  
 
-### The challenges
+## The challenges
 
 run the code as it is:
 
@@ -86,6 +90,8 @@ ruby jeopardy.rb
 ```
 
 You'll notice that it puts the entire response out all at once. That's *way* too much.  We'll go one step at a time and try to build this up as a fully functional and interactive game.
+
+#### LEVEL 1
 
 1. Print out just the first item in the entire response.
 
@@ -105,13 +111,17 @@ puts response[0]['question']
     
 5. If you get it wrong, you probably still want to know the right answer - it can be so frustrating if you were sure you were right. If the user gets it wrong, print out a message tell them what the correct answer really was.
 
+#### LEVEL 2
+
 6. Wrap this game in either a times loop or an until loop; that way the user can play the game 10 times in a row, or they can play until they type something like "exit".
 
 7. Create a score variable:
     * If the user gets a question right, increase their score by the point value of the question.
     * If the user gets a question wrong, decrease their score by the point value of the question.
     * Print out their score after each round.
-    
+
+#### LEVEL 3
+
 8. One of the most frustrating parts of this game is missing an answer due to typos, spelling errors, capitalization mismatches, or unexpected punctuation. Some of this is relatively easy to fix with Ruby's core methods, but there is no core method to show that "george" and "gorge" are SO CLOSE that the user probably actually knew the answer.
     * There's a gem called [similar-text](https://rubygems.org/gems/similar_text) that will let us examine how similar two strings are.
     * Install that gem, require it at the top of your program, and then look at the documentation to figure out how to use it.
@@ -119,6 +129,8 @@ puts response[0]['question']
     * It may also be beneficial to consider a way of recognizing that "Grapes of Wrath" and "The Grapes of Wrath" would be considered a mismatch. Are you going to give the user another change if all they're missing is a small word like "the"?
 
 ![Jeopardy Board](jBoard.jpg)
+
+#### LEVEL 4
 
 9. The real jeopardy board has six categories, and 5 questions per category of increasing difficulty. That's 30 unique questions. The player also gets to CHOOSE which questions to answer and when.
     * Find a way to load all 30 questions, and then offer the user a choice of which question to attempt.
