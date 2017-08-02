@@ -1,6 +1,6 @@
 # Build a Command Line Quiz Game!
 
-### The goal
+#### The Goal
 
 We're going to build a CLI trivia game! When it's finished, it will look something like this:
 
@@ -81,7 +81,7 @@ Earlier, you used [http://jservice.io/api/clues?category=139](http://jservice.io
 
 Feel free to change the category to whatever other category you choose. When you've picked a category you like (or if you want to stick to 5-letter words), it's time to really get started.  
 
-## The challenges
+## The Challenges
 
 run the code as it is:
 
